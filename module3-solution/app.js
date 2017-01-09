@@ -37,15 +37,11 @@ function NarrowItDownController(MenuSearchService) {
     MenuSearch.noMatch = false;
 
     MenuSearch.getMatchedMenuItems = function () {
-        if (MenuSearch.searchTerm == ""){
-            MenuSearch.found = [];
-        }
-        else {
-            var promise = MenuSearchService.getMatchedMenuItems(MenuSearch.searchTerm);
+        MenuSearch.found = [];
+        var promise = MenuSearchService.getMatchedMenuItems(MenuSearch.searchTerm);
             promise.then(function (data){
                 MenuSearch.found = data;
             });
-        }
         if (MenuSearch.found.length == 0) {
             MenuSearch.noMatch = true;
         }
