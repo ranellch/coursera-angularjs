@@ -35,6 +35,10 @@ function NarrowItDownController(MenuSearchService) {
     MenuSearch.noMatch = false;
 
     MenuSearch.getMatchedMenuItems = function () {
+        if (MenuSearch.searchTerm == "") {
+            MenuSearch.noMatch = true;
+            MenuSearch.found = []
+        }
         var promise = MenuSearchService.getMatchedMenuItems(MenuSearch.searchTerm);
         promise.then(function (data){
             MenuSearch.found = data;
