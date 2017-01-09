@@ -38,18 +38,19 @@ function NarrowItDownController(MenuSearchService) {
         if (MenuSearch.searchTerm == "") {
             MenuSearch.noMatch = true;
             MenuSearch.found = []
-            return
         }
-        var promise = MenuSearchService.getMatchedMenuItems(MenuSearch.searchTerm);
-        promise.then(function (data){
-            MenuSearch.found = data;
-            if (data.length == 0) {
-                MenuSearch.noMatch = true;
-            }
-            else {
-                MenuSearch.noMatch = false;
-            }
-        });
+        else {
+            var promise = MenuSearchService.getMatchedMenuItems(MenuSearch.searchTerm);
+            promise.then(function (data){
+                MenuSearch.found = data;
+                if (data.length == 0) {
+                    MenuSearch.noMatch = true;
+                }
+                else {
+                    MenuSearch.noMatch = false;
+                }
+            });
+        }
     };
 
     MenuSearch.removeItem = function (itemIndex) {
