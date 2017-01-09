@@ -18,13 +18,11 @@ function FoundItemsDirective() {
       controllerAs: 'MenuSearch',
       bindToController: true
     };
-    console.log("directive")
     return ddo;
 }
 
 function FoundItemsDirectiveController() {
     var MenuSearch = this;
-    console.log("fuck")
 }
 
 NarrowItDownController.$inject = ['MenuSearchService'];
