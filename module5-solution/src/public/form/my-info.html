@@ -1,0 +1,23 @@
+<div id="main-content" class="container">
+    <span  ng-if="infoCtrl.userInfo==null">
+      Not Signed Up Yet. <a ui-sref="public.signup"> Sign up Now! </a>
+   </span>
+   <div class="container" ng-if="infoCtrl.userInfo">
+     <h2  class="text-center">
+       My Info
+   </h2><br>
+     <div class="text-center">
+       {{infoCtrl.userInfo.firstname}} {{infoCtrl.userInfo.lastname}} <br>
+       {{infoCtrl.userInfo.phone}} <br>
+       {{infoCtrl.userInfo.email}} <br><br>
+     </div>
+     <div>
+       <h3 style="text-align: center;" >Favorite Dish: {{infoCtrl.menuItem.name}} ({{infoCtrl.menuItem.short_name}})</h3>
+       <p class="menu-item-details" style="text-align: center;">{{infoCtrl.menuItem.description}}</p>
+       <img class="img-responsive" style = "display: block; margin: auto;" width="250" height="150"
+            ng-src="{{infoCtrl.basePath}}/images/{{infoCtrl.menuItem.short_name}}.jpg"
+            alt="{{infoCtrl.menuItem.name}}">
+     </div>
+
+   </div>
+</div>
